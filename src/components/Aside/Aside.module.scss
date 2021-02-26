@@ -1,10 +1,15 @@
 .aside{
    max-width: 400px;
+   min-width: 350px;
    height: 100vh;
-   background-color: #32394B;
-   padding:50px;
-   border-top-left-radius: 30px;
-   border-bottom-left-radius: 30px;
+   background-color: #32394b;
+   padding: 50px;
+   overflow: hidden;
+   border-top-left-radius: 15px;
+   border-bottom-left-radius: 15px;
+   position:absolute;
+   top:0;
+   left:0;
 }
 .title{
    color:white;

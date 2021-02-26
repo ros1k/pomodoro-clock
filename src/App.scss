@@ -1,0 +1,65 @@
+.App{
+   margin-left:350px;
+
+}
+.main-content{
+   padding:0 25px;
+   background-color: #f8f9fe;
+   min-height: 100vh;
+}
+.main-task-list{
+   background-color: white;
+   display: flex;
+   flex-direction: row;
+   list-style: none;
+   border:1px solid #ebebeb;
+   border-bottom:0px;
+   border-radius: 5px;
+   margin-bottom: 15px;
+   &.group{
+      margin-bottom: 0px;
+      border-bottom-left-radius: 0px ;
+      border-bottom-right-radius: 0px ;
+   }
+   &.items{
+      margin-bottom: 0px;
+      
+      border-radius: 0px;
+      border-top:0px;
+      border-bottom:0px;
+   }
+   &.add-new{
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+   }
+
+   
+}
+.main-task-list-item{
+   color:#000000;
+   font-weight: 600;
+   padding:10px 15px;
+   display: inline-block;
+   border-bottom:1px solid #e9e9e9;
+   &.header{
+      color:#6d6f7b;
+      font-weight: 500;
+     
+   }
+   &.group-title{
+      font-weight: 800;
+   }
+
+   &:nth-child(1){
+      width: 60px;
+      padding:10px 5px;
+      text-align: right;
+   }
+   &:nth-child(2){
+      flex-grow: 1;
+   }
+   &:nth-child(1n+3){
+      width: 175px;
+      border-left:1px solid #ebebeb;
+   }
+}

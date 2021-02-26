@@ -5,25 +5,26 @@ export const EDIT = 'EDIT';
 export const DELETE = 'DELETE';
 
 
-export const addList = ({listName}) =>({
+export const addProjectGroup = ({groupTitle,isAllowToDelete}) =>({
       type:ADD,
       payload:{
          id: uuid.v4(),
-         listName,
+         groupTitle,
+         isAllowToDelete: isAllowToDelete
       }
 
    })
    
-export const editList = ({id,listName}) => ({  // ({data})
+export const editProjectGroup = ({id,groupTitle}) => ({  // ({data})
    type:EDIT,
    payload: {
       //...data
       id,
-      listName
+      groupTitle
    }
 })
 
-export const deleteList = id =>({
+export const deleteProjectGroup = id =>({
    type:DELETE,
    payload:{
       id,

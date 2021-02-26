@@ -1,6 +1,11 @@
 import { combineReducers } from 'redux'
-import {listReducer} from './listReducer'
+import { projectsReducer } from './projectsReducer'
+import { projectGroupsReducer } from './projectGroupsReducer'
+import { activeProjectReducer } from './activeProjectReducer'
+
 
 export const rootReducer = combineReducers({
-   list: listReducer
+   projects: projectsReducer,
+   activeProject: activeProjectReducer,
+   groups: projectGroupsReducer,
 })

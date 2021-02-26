@@ -1,15 +1,16 @@
 
 import {
    ADD,EDIT,DELETE
-} from '../actions/listActions'
+} from '../actions/projectsActions'
 import uuid from 'uuid';
 
 const defaultState = {
-   listName: 'Default List',
-   id : uuid.v4()
+   id : uuid.v4(),
+   projectName: 'Default List'
+  
 }
 
-export const listReducer = (state = [defaultState], action) =>{
+export const projectsReducer = (state = [defaultState], action) =>{
    switch(action.type){
       case ADD:
          return [...state, action.payload];
@@ -19,7 +20,7 @@ export const listReducer = (state = [defaultState], action) =>{
                return currentList 
             }
             return ({
-               listName: action.payload.listName,
+               projectName: action.payload.projectName,
                id: currentList.id
             })
          });
