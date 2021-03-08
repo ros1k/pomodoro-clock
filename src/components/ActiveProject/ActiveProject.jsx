@@ -1,10 +1,13 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {  useSelector } from 'react-redux'
 import ProjectGroups from '../ProjectGroups/ProjectGroups'
 
 import style from './ActiveProject.module.scss'
 
-const ActiveProject = ({projects,activeProjectID}) => {
+const ActiveProject = () => {
+   const projects = useSelector(state => state.projects)
+   const activeProjectID = useSelector(state => state.activeProject)
+
    const getTitle = () =>{
       if(activeProjectID.id !== 0){
          return projects.map(project => {
@@ -30,11 +33,4 @@ const ActiveProject = ({projects,activeProjectID}) => {
 
 
 
-const listReduxStateToProps = store => ({
-   projects: store.projects,
-   activeProjectID: store.activeProject
-})
-
-const currentActiveProject = connect(listReduxStateToProps)(ActiveProject);
-
-export default currentActiveProject;
+export default ActiveProject;

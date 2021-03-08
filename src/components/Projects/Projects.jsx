@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import { addProject,editProject,deleteProject } from '../../store/actions/projectsActions'
+import { useDispatch,useSelector } from 'react-redux'
+import { addProject } from '../../store/actions/projectsActions'
 import { activeProject } from '../../store/actions/activeProjectActions'
 import AvailableProjects from './AvailableProjects/AvailableProjects'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,16 +8,17 @@ import AvailableProjects from './AvailableProjects/AvailableProjects'
 
 import style from './Projects.module.scss'
 
-const Projects = ({projects,activeProjectID,addProject,activeProject}) => {
+const Projects = () => {
    const [add,setAdd] = useState(false);
    const [inputName,setInputName] = useState();
-
-
+   const dispatch = useDispatch();
+   const projects = useSelector(store => store.projects)
+   const activeProjectID = useSelector(store => store.activeProject)
    const handleChangeListView = ( newId ) =>{
       const setNewActiveProject = {
          id: newId
       }
-      activeProject(setNewActiveProject)
+      dispatch(activeProject(setNewActiveProject))
    }
    
    const projectList = projects.map((project,i)=>{
@@ -61,7 +62,7 @@ const Projects = ({projects,activeProjectID,addProject,activeProject}) => {
          projectName : inputName
       }
       
-      addProject(newProject)
+      dispatch(addProject(newProject))
      
       
    }
@@ -81,16 +82,7 @@ const Projects = ({projects,activeProjectID,addProject,activeProject}) => {
    )
 }
 
-const projectActionsToProps = ({
-   addProject,
-   activeProject
-})
 
-const listReduxStateToProps = store => ({
-   projects: store.projects,
-   activeProjectID: store.activeProject
-})
 
-const ConsumerToDoList = connect(listReduxStateToProps, projectActionsToProps)(Projects)
 
-export default ConsumerToDoList;
+export default Projects;
