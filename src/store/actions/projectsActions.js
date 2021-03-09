@@ -1,12 +1,12 @@
 import uuid from 'uuid';
 
-export const ADD = 'ADD';
-export const EDIT = 'EDIT';
-export const DELETE = 'DELETE';
+export const ADD_PROJECT = 'ADD_PROJECT';
+export const EDIT_PROJECT = 'EDIT_PROJECT';
+export const DELETE_PROJECT = 'DELETE_PROJECT';
 
 
 export const addProject = ({projectName}) =>({
-      type:ADD,
+      type:ADD_PROJECT,
       payload:{
          id: uuid.v4(),
          projectName,
@@ -15,7 +15,7 @@ export const addProject = ({projectName}) =>({
    })
    
 export const editProject= ({id,projectName}) => ({  // ({data})
-   type:EDIT,
+   type:EDIT_PROJECT,
    payload: {
       //...data
       id,
@@ -24,7 +24,7 @@ export const editProject= ({id,projectName}) => ({  // ({data})
 })
 
 export const deleteProject = id =>({
-   type:DELETE,
+   type:DELETE_PROJECT,
    payload:{
       id,
    }

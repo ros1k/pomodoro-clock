@@ -1,6 +1,6 @@
 
 import {
-   ADD,EDIT,DELETE
+   ADD_PROJECT,EDIT_PROJECT,DELETE_PROJECT
 } from '../actions/projectsActions'
 import uuid from 'uuid';
 
@@ -12,9 +12,9 @@ const defaultState = {
 
 export const projectsReducer = (state = [defaultState], action) =>{
    switch(action.type){
-      case ADD:
+      case ADD_PROJECT:
          return [...state, action.payload];
-      case EDIT:
+      case EDIT_PROJECT:
          return state.map(currentList =>{
             if(currentList.id !== action.payload.id){
                return currentList 
@@ -24,7 +24,7 @@ export const projectsReducer = (state = [defaultState], action) =>{
                id: currentList.id
             })
          });
-      case DELETE:
+      case DELETE_PROJECT:
          return state.filter(currentStateList => currentStateList.id !== action.payload.id);
       default:
          console.warn(`Nie mamy akcji typu: ${action.type}`)

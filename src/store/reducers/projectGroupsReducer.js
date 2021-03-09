@@ -1,6 +1,6 @@
 
 import {
-   ADD,EDIT,DELETE
+   ADD_LIST,EDIT_LIST,DELETE_LIST
 } from '../actions/projectGroupsActions'
 import uuid from 'uuid';
 
@@ -13,9 +13,9 @@ const defaultState = {
 
 export const projectGroupsReducer = (state = [defaultState], action) =>{
    switch(action.type){
-      case ADD:
+      case ADD_LIST:
          return [...state, action.payload];
-      case EDIT:
+      case EDIT_LIST:
          return state.map(currentList =>{
             if(currentList.id !== action.payload.id){
                return currentList 
@@ -25,7 +25,7 @@ export const projectGroupsReducer = (state = [defaultState], action) =>{
                id: currentList.id
             })
          });
-      case DELETE:
+      case DELETE_LIST:
          return state.filter(currentStateList => currentStateList.id !== action.payload.id);
       default:
          console.warn(`Nie mamy akcji typu: ${action.type}`)
