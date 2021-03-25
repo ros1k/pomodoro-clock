@@ -6,7 +6,18 @@
 .bottomWrapper{
    padding:10px 20px;
    border-top:2px solid #F2F5FC;
+   span{
+      margin-right: 10px;
+   }
 }
 .topWrapper{
    padding:10px 20px;
+   
+}
+.levelBar{
+   display: block;
+   width: 30px;
+   height: 4px;
+   border-radius: 30%;
+   margin-top: 10px;
 }

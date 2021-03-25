@@ -1,22 +1,26 @@
 
 import React from 'react'
 
+
 import style from './ProjectSingleGroupElement.module.scss'
 
-const ProjectSingleGroupElement = () => {
+const ProjectSingleGroupElement = ({id,parentID,taskColor,taskComments,taskDueDat,taskSubList,taskTitle}) => {
+ 
+ 
    return (
       <div className={style.projectSingleElement}>
          <div className={style.topWrapper}>
-            <h3>list element</h3>
-            <span className="bar"></span>
+            <h3>{taskTitle}</h3>
+            <span className={style.levelBar} style={{backgroundColor:taskColor}}></span>
          </div>
          <div className={style.bottomWrapper}>
             <span>
-               icon 3
+               comments ({taskComments.length})
             </span>
             <span>
-               icon 8
+               links
             </span>
+        
          </div>
 
       </div>

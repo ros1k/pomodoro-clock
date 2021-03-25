@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import { useDispatch,useSelector } from 'react-redux'
 import { addProject } from '../../store/actions/projectsActions'
 import { activeProject } from '../../store/actions/activeProjectActions'
@@ -22,11 +22,14 @@ const Projects = () => {
    }
    
    const projectList = projects.map((project,i)=>{
+     
       const isActive = () =>{
          if((activeProjectID.id === 0) && (i === 0)) {
+            dispatch(activeProject({id:project.id}))
             return true
          }
          if(activeProjectID.id === project.id){
+           
             return true
          }
          return false
@@ -40,7 +43,7 @@ const Projects = () => {
       
     
    })
-
+   
    const handleInputChange = (event) =>{
       setInputName(event.target.value)
    }
@@ -72,9 +75,9 @@ const Projects = () => {
          <ul className={style['projects-list']}>
             {projectList}
          </ul>
-         <form onSubmit={handleSubmit}>
+         <form id="new-project" onSubmit={handleSubmit}>
             {add && <input type="text" onChange={handleInputChange}/>}
-            {add && <button type="submit">Dodaj</button>}
+            {add && <button type="submit" form="new-project">Dodaj</button>}
             <button onClick={handleOnClick} >{add?"Anuluj":"Dodaj nowy projekt"}</button>
          </form>
       </div>
