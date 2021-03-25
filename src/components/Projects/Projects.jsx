@@ -34,12 +34,14 @@ const Projects = () => {
          }
          return false
       }
-
-      return <AvailableProjects 
-                  key={project.id} 
-                  {...project} 
-                  handleChangeListView={event => handleChangeListView(event.currentTarget.id)} 
-                  isActive={isActive()} />
+      if(i === 0){
+         return <AvailableProjects 
+         key={project.id} 
+         {...project} 
+         handleChangeListView={event => handleChangeListView(event.currentTarget.id)} 
+         isActive={isActive()} />
+      }
+     
       
     
    })
@@ -78,7 +80,7 @@ const Projects = () => {
          <form id="new-project" onSubmit={handleSubmit}>
             {add && <input type="text" onChange={handleInputChange}/>}
             {add && <button type="submit" form="new-project">Dodaj</button>}
-            <button onClick={handleOnClick} >{add?"Anuluj":"Dodaj nowy projekt"}</button>
+            {/* <button onClick={handleOnClick} >{add?"Anuluj":"Dodaj nowy projekt"}</button> */}
          </form>
       </div>
       

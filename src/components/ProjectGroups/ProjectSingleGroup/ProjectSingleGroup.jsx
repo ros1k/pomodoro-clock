@@ -61,6 +61,7 @@ const ProjectSingleGroup = ({title,id}) => {
          taskTitle: newItemTitle,
          important: importantStatus,
       }))
+      closeModal();
    }
 
    const customStyles = {

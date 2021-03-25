@@ -12,7 +12,8 @@ const AvailableProjects = ({id,projectName,isActive,handleChangeListView}) => {
                >
                {projectName}
                <span className={style['project-list__element-details'] }>
-                  3 boards and 43 active tasks
+                  total: 43 tasks<br/>
+                  active: 23 tasks
                </span>
             </li>
 }

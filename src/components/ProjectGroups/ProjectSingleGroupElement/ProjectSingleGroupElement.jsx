@@ -1,7 +1,7 @@
 
 import React from 'react'
 import {useSelector,useDispatch} from 'react-redux'
-import { changeTaskStatus } from '../../../store/actions/tasksActions.js'
+import { changeTaskStatus, deleteTask } from '../../../store/actions/tasksActions.js'
 import style from './ProjectSingleGroupElement.module.scss'
 
 const ProjectSingleGroupElement = ({id,parentID,taskColor,taskTitle,important,finished,isChecked}) => {
@@ -30,7 +30,9 @@ const ProjectSingleGroupElement = ({id,parentID,taskColor,taskTitle,important,fi
       
    }
    
-
+   const handleDeleteItem = () =>{
+      dispatch(deleteTask(id))
+   }
 
    if(finished){
       return (
@@ -45,6 +47,8 @@ const ProjectSingleGroupElement = ({id,parentID,taskColor,taskTitle,important,fi
                
                </span>
                <h3>{taskTitle}</h3>
+               <button onClick={handleDeleteItem}> usuń </button>
+
             </div>
             {/* <div className={style.bottomWrapper}>
                <span>
@@ -70,6 +74,7 @@ const ProjectSingleGroupElement = ({id,parentID,taskColor,taskTitle,important,fi
                   }
                </span>
                <h3>{taskTitle}</h3>
+               <button onClick={handleDeleteItem}> usuń </button>
             </div>
             {/* <div className={style.bottomWrapper}>
                <span>

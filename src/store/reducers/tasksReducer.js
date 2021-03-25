@@ -7,7 +7,7 @@ import uuid from 'uuid';
 const defaultState = {
    id : uuid.v4(),
    parentID: 0,
-   taskTitle:'Finish this to do list app',
+   taskTitle:'To do list app',
    important:true,
    finished:false,
 }
@@ -30,19 +30,19 @@ const n3 = {
    parentID: 0,
    taskTitle:'dodawanie i usuwanie elementów',
    important:false,
-   finished:false,
+   finished:true,
 }
 const n4 = {
    id : uuid.v4(),
    parentID: 0,
-   taskTitle:'rwd',
+   taskTitle:'dodawanie nowy zakładek statusów',
    important:false,
    finished:false,
 }
 const n5 = {
    id : uuid.v4(),
    parentID: 0,
-   taskTitle:'css/scss',
+   taskTitle:'dodawanie nowych list to do \ projektów',
    important:false,
    finished:false,
 }

@@ -9,6 +9,7 @@ const TaskGroups = () => {
    const lists = useSelector(state=>state.groups)
 
    const renderLists = lists.map((e,v) => {
+      console.log(e.parentId);
       return <ProjectSingleGroup key={e.id} title={e.groupTitle} id={e.id}/>
    })
    return (
