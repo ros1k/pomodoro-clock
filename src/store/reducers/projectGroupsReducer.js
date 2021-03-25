@@ -4,14 +4,21 @@ import {
 } from '../actions/projectGroupsActions'
 import uuid from 'uuid';
 
-const defaultState = {
+const defaultTodoState = {
    id : uuid.v4(),
    groupTitle: 'To Do',
+   parentId: 0,
    isAllowToDelete : false,
   
 }
-
-export const projectGroupsReducer = (state = [defaultState], action) =>{
+const defaultTodoFinishState = {
+   id : uuid.v4(),
+   groupTitle: 'Finished',
+   parentId: 0,
+   isAllowToDelete : false,
+  
+}
+export const projectGroupsReducer = (state = [defaultTodoState,defaultTodoFinishState], action) =>{
    switch(action.type){
       case ADD_LIST:
          return [...state, action.payload];
