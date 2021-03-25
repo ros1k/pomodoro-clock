@@ -9,37 +9,87 @@ const defaultState = {
    parentID: 0,
    taskTitle:'Finish this to do list app',
    taskColor:"red",
-   taskSubList:[
-      {
-         name:'Stworzyć listę projektów', 
-         finished:true,
-      },
-      {
-         name:'Stworzyć listę tasków', 
-         finished:true,
-      },
-      {
-         name:'Dodać elementy do listy', 
-         finished:true,
-      },
-      {
-         name:'css/scss', 
-         finished:false,
-      },
-      {
-         name:'rwd', 
-         finished:false,
-      },
-      {
-         name:'dodawanie i usuwanie elementów', 
-         finished:false,
-      }],
+   taskSubList:[],
    taskDueDate:'yesterday',
    taskComments:[],
-  
+   finished:false,
+}
+const n1 = {
+   id : uuid.v4(),
+   parentID: 0,
+   taskTitle:'Stworzyć listę projektów',
+   taskColor:"green",
+   taskSubList:[],
+   taskDueDate:'yesterday',
+   taskComments:[],
+   finished:true,
+}
+const n2 = {
+   id : uuid.v4(),
+   parentID: 0,
+   taskTitle:'Dodać elementy do listy',
+   taskColor:"green",
+   taskSubList:[],
+   taskDueDate:'yesterday',
+   taskComments:[],
+   finished:true,
+}
+const n3 = {
+   id : uuid.v4(),
+   parentID: 0,
+   taskTitle:'dodawanie i usuwanie elementów',
+   taskColor:"green",
+   taskSubList:[],
+   taskDueDate:'yesterday',
+   taskComments:[],
+   finished:false,
+}
+const n4 = {
+   id : uuid.v4(),
+   parentID: 0,
+   taskTitle:'rwd',
+   taskColor:"green",
+   taskSubList:[],
+   taskDueDate:'yesterday',
+   taskComments:[],
+   finished:false,
+}
+const n5 = {
+   id : uuid.v4(),
+   parentID: 0,
+   taskTitle:'css/scss',
+   taskColor:"green",
+   taskSubList:[],
+   taskDueDate:'yesterday',
+   taskComments:[],
+   finished:false,
 }
 
-export const tasksReducer = (state = [defaultState], action) =>{
+// {
+//    name:'Stworzyć listę projektów', 
+//    finished:true,
+// },
+// {
+//    name:'Stworzyć listę tasków', 
+//    finished:true,
+// },
+// {
+//    name:'Dodać elementy do listy', 
+//    finished:true,
+// },
+// {
+//    name:'css/scss', 
+//    finished:false,
+// },
+// {
+//    name:'rwd', 
+//    finished:false,
+// },
+// {
+//    name:'dodawanie i usuwanie elementów', 
+//    finished:false,
+// }
+export const tasksReducer = (state = [defaultState,n1,n2,n3,n4,n5], action) =>{
    switch(action.type){
       case ADD_TASK:
          return [...state, action.payload];

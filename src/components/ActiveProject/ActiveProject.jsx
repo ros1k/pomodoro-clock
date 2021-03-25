@@ -47,7 +47,7 @@ const ActiveProject = () => {
       <div className={style.renderActiveProject}>
          <h2>{getTitle()}</h2>
          <div> 
-            <button onClick={handleAddNewGroup}>create</button>
+            {/* <button onClick={handleAddNewGroup}>create</button> */}
             {addNewGroup && 
                <form id="add-new-group" onSubmit={handleSubmitNewList}  >
                   <input type="text" name="addNewGroup" placeholder="List name..." onChange={e => setInputValue(e.target.value)} value={inputValue}/>

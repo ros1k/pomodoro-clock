@@ -1,7 +1,13 @@
 .projectSingleElement{
    background-color: white;
-
+   position: relative;
    border-radius: 10px;
+   margin-bottom: 15px;
+   h3{
+      font-size:16px;
+      font-weight: 600;
+   }
+
 }
 .bottomWrapper{
    padding:10px 20px;
@@ -12,12 +18,51 @@
 }
 .topWrapper{
    padding:10px 20px;
-   
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: center;
+}
+.fakeCheckbox{
+   margin-right: 10px;
+   position: relative; 
+   input{
+      opacity: 0;
+   }
+   display: flex;
+   width: 15px;
+   height: 15px;
+   border:1px solid rgb(50, 57, 75);
+   border-radius: 5px;
+   &:before{
+      content:"";
+      width:5px;
+      height: 15px;
+      position: absolute;
+      top:-6px;
+      left:5px;
+      border-right:4px solid #21d186;
+      border-bottom:3px solid #21d186;
+      transform:rotate(45deg);
+      opacitY:0;
+      transition: 0.2s ease;
+   }
+ 
+   &Checked{
+      @extend .fakeCheckbox;
+      &:before{
+         opacity:1
+      }
+   }
 }
 .levelBar{
+   top:-10px;
+   left:0;
+   position: absolute;
    display: block;
-   width: 30px;
-   height: 4px;
-   border-radius: 30%;
+   width: 10px;
+   height: 100%;
+   border-top-left-radius: 10px;
+   border-bottom-left-radius: 10px;
    margin-top: 10px;
 }
