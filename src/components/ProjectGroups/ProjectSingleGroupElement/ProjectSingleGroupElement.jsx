@@ -1,18 +1,48 @@
 
 import React from 'react'
-
-
+import {useSelector,useDispatch} from 'react-redux'
+import { changeTaskStatus } from '../../../store/actions/tasksActions.js'
 import style from './ProjectSingleGroupElement.module.scss'
 
-const ProjectSingleGroupElement = ({id,parentID,taskColor,taskComments,taskDueDat,taskSubList,taskTitle,finished}) => {
- 
+const ProjectSingleGroupElement = ({id,parentID,taskColor,taskTitle,important,finished,isChecked}) => {
+   const tasks = useSelector(store => store.tasks)
+   const groups = useSelector(store => store.groups)
+   const dispatch = useDispatch();
+
+   const handleCheckboxChange = (event) => {
+      if(event.target.checked){
+         console.log(id);
+         const changeStatus = {
+            id:id,
+            parentID: groups[1].id,
+            finished: event.target.checked
+         }
+         dispatch(changeTaskStatus(changeStatus))
+
+      }else{
+         const changeStatus = {
+            id:id,
+            parentID: groups[0].id,
+            finished: event.target.checked
+         }
+         dispatch(changeTaskStatus(changeStatus))
+      }
+      
+   }
+   
+
+
    if(finished){
       return (
          <div className={style.projectSingleElement}>
             <div className={style.topWrapper}>
-               <span className={style.levelBar} style={{backgroundColor:taskColor}}></span>
+               <span className={style.levelBar} style={important?{backgroundColor:'red'}:{backgroundColor:'limegreen'}}></span>
                <span className={style.fakeCheckboxChecked}>
-                  <input type="checkbox"/>
+                  {isChecked
+                  ?<input onChange={handleCheckboxChange} type="checkbox" checked /> 
+                  :<input onChange={handleCheckboxChange} type="checkbox"/> 
+                  }
+               
                </span>
                <h3>{taskTitle}</h3>
             </div>
@@ -32,9 +62,12 @@ const ProjectSingleGroupElement = ({id,parentID,taskColor,taskComments,taskDueDa
       return (
          <div className={style.projectSingleElement}>
             <div className={style.topWrapper}>
-               <span className={style.levelBar} style={{backgroundColor:taskColor}}></span>
+               <span className={style.levelBar} style={important?{backgroundColor:'red'}:{backgroundColor:'limegreen'}}></span>
                <span className={style.fakeCheckbox}>
-                  <input type="checkbox"/>
+               {isChecked
+                  ?<input onChange={handleCheckboxChange} type="checkbox" checked /> 
+                  :<input onChange={handleCheckboxChange} type="checkbox"/> 
+                  }
                </span>
                <h3>{taskTitle}</h3>
             </div>

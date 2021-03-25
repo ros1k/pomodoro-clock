@@ -9,5 +9,5 @@ export const rootReducer = combineReducers({
    projects: projectsReducer,
    activeProject: activeProjectReducer,
    groups: projectGroupsReducer,
-   tasks:tasksReducer,
+   tasks: tasksReducer,
 })
